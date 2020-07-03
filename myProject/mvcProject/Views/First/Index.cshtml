@@ -1,0 +1,24 @@
+﻿@model mvcProject.Models.CurrentUser
+@using Microsoft.AspNetCore.Http
+@{
+    Layout = null;
+    CurrentUser userViewData = ViewData["User"] as CurrentUser;
+    CurrentUser userViewBag = ViewBag.User as CurrentUser;
+    CurrentUser userTempData = TempData["User"] as CurrentUser;
+    CurrentUser userSession = Newtonsoft.Json.JsonConvert.DeserializeObject<CurrentUser>(base.Context.Session.GetString("CurrentUserSession"));
+}
+
+<h5>ViewData:@(((CurrentUser)ViewData["User"]).Name)</h5>
+<h5>userViewData:@userViewData.Name</h5>
+
+<h5>ViewBag:@(((CurrentUser)ViewBag.User).Age)</h5>
+<h5>userViewBag:@userViewBag.Age</h5>
+
+<h5>TempData:@(((CurrentUser)TempData["User"]).Email)</h5>
+<h5>userTempData:@userTempData.Email</h5>
+
+<h5>Model:@base.Model.Password</h5>
+
+<h5>userSession:@userSession.LoginTime</h5>
+
+
